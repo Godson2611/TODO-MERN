@@ -5,7 +5,7 @@ import { toast } from "sonner";
 const TodoRow = ({ todo, index, onDelete }) => {
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/todos/delete/${todo._id}`);
+      await axios.delete(`https://todo-mern-d1he.onrender.com/todos/delete/${todo._id}`);
       onDelete();
       toast('Todo deleted successfully');
     } catch (error) {

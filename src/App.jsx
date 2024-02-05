@@ -16,7 +16,7 @@ const App = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/todos/get");
+      const response = await axios.get("https://todo-mern-d1he.onrender.com/todos/get");
       setTodos(response.data);
     } catch (error) {
       console.error("Error fetching todos:", error.message);
@@ -25,7 +25,7 @@ const App = () => {
 
   const handleAdd = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/todos/add", {
+      const response = await axios.post("https://todo-mern-d1he.onrender.com/todos/add", {
         description: inputValue,
       });
 
