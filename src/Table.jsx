@@ -9,13 +9,19 @@ const Table = ({ todos, setTodos }) => {
   };
 
   return (
-    <div className='w-full max-w-md mx-auto overflow-y-auto max-h-96'>
+    <div className='w-full max-w-md mx-auto '>
       <table className='w-full divide-y divide-gray-200'>
         <thead>
           <tr>
-            <th className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">ID</th>
-            <th className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Description</th>
-            <th className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">Actions</th>
+            <th className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>
+              ID
+            </th>
+            <th className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>
+              Description
+            </th>
+            <th className='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody>

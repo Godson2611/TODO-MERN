@@ -4,11 +4,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Table from "./Table";
 import { toast } from "sonner";
-import logo from "../public/vite.svg";
+import logo from "./assets/vite.svg";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  // const LocalHostURL = import.meta.env.VITE_API_LOCAL;
+  const APIURL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     fetchTodos();
@@ -16,7 +18,9 @@ const App = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get("https://todo-mern-d1he.onrender.com/todos/get");
+      const response = await axios.get(
+        `${APIURL}/todos/get`
+      );
       setTodos(response.data);
     } catch (error) {
       console.error("Error fetching todos:", error.message);
@@ -25,10 +29,10 @@ const App = () => {
 
   const handleAdd = async () => {
     try {
-      const response = await axios.post("https://todo-mern-d1he.onrender.com/todos/add", {
-        description: inputValue,
-      });
-
+      const response = await axios.post(
+        `${APIURL}/todos/add`,
+        { description: inputValue }
+      );
       setTodos((prevTodos) => [...prevTodos, response.data]);
       setInputValue("");
       toast("Todo added successfully");
@@ -45,7 +49,7 @@ const App = () => {
   return (
     <div className='flex flex-col items-center pt-10 min-h-screen bg-gray-100'>
       <div className='flex items-center mr-10'>
-        <img src={logo} alt='Logo' style={{ maxWidth: '75%' }} />
+        <img src={logo} alt='Logo' style={{ maxWidth: "75%" }} />
         <h1 className='text-4xl font-bold'>TODO LIST</h1>
       </div>
       <form onSubmit={handleFormSubmit} className='flex mt-4'>
