@@ -24,7 +24,6 @@ export const addTodo = async (req, res) => {
   }
 };
 
-
 export const deleteTodo = async (req, res) => {
   const { id } = req.params;
 

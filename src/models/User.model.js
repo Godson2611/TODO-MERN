@@ -9,8 +9,7 @@ const validateEmail = (e) => {
 
 const userSchema = new mongoose.Schema(
   {
-    firstName: { type: String, required: [true, "First Name is required"] },
-    lastName: { type: String, required: [true, "Last Name is required"] },
+    name: { type: String, required: [true, "Name is required"] },
     email: {
       type: String,
       required: [true, "Email is required"],
@@ -20,6 +19,7 @@ const userSchema = new mongoose.Schema(
     status: { type: Boolean, default: true },
     role: { type: String, default: "customer" },
     createdAt: { type: Date, default: Date.now() },
+    todos: [{ type: mongoose.Schema.Types.ObjectId, ref: "Todo" }],
   },
   {
     collection: "users",
@@ -27,5 +27,5 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-const userModel = mongoose.model("users", userSchema);
+const userModel = mongoose.model("User", userSchema);
 export default userModel;
